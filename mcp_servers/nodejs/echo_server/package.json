@@ -1,0 +1,10 @@
+{
+  "name": "@charoro/echo-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Example Node.js MCP server for local skill workflows",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

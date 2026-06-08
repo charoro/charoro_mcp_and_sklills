@@ -1,0 +1,5 @@
+name: text_summary
+runtime: python
+entrypoint: skill.py
+description: >
+  入力テキストを簡易要約（先頭N行抽出）するサンプルスキル
