@@ -14,9 +14,15 @@
 │           └── src/index.js
 └── skills/
     └── python/
-        └── text_summary/
+        ├── text_summary/
+        │   ├── skill.py
+        │   └── skill.yaml
+        └── pptx_from_markdown/
             ├── skill.py
-            └── skill.yaml
+            ├── skill.yaml
+            ├── requirements.txt
+            ├── sample_template.pptx
+            └── sample_content.md
 ```
 
 - `mcp_servers/nodejs/`: Node.jsベースのMCPサーバー置き場
@@ -56,6 +62,59 @@ python3 skill.py --max-lines 2 "これはテキスト要約スキルのサンプ
 - メタデータ: `skill.yaml`
 
 運用では、必要なskillディレクトリのみを選んで各エージェント側へ登録してください。
+
+## skill: pptx_from_markdown（Python）
+
+PPTXテンプレートとMarkdownファイルをもとに、テンプレートのデザインを維持したままPowerPointプレゼンテーションを生成するスキルです。
+
+### 1) 依存ライブラリのインストール
+
+```bash
+cd skills/python/pptx_from_markdown
+pip install -r requirements.txt
+```
+
+### 2) 実行
+
+```bash
+python3 skill.py \
+  --template sample_template.pptx \
+  --markdown sample_content.md \
+  --output output.pptx
+```
+
+### 3) Markdownの書き方
+
+| Markdown記法             | 生成されるスライド                        |
+|--------------------------|-------------------------------------------|
+| `# タイトル`             | タイトルスライド（1枚目推奨）             |
+| `## セクション見出し`    | セクションヘッダースライド               |
+| `### スライドタイトル`   | タイトル＋コンテンツスライド             |
+| `- 箇条書き`             | 直前のスライドの箇条書きに追加           |
+| 通常テキスト行           | 直前のスライドの本文に追加               |
+
+サンプル（`sample_content.md`）:
+
+```markdown
+# プロジェクト進捗報告
+2026年6月 / 開発チーム
+
+## 概要
+
+### プロジェクトの目的
+- 社内業務の自動化推進
+- AIエージェント活用による効率化
+```
+
+### 4) 独自テンプレートの使用
+
+任意の `.pptx` ファイルをテンプレートとして指定できます。テンプレート内の既存スライドは削除され、Markdownの内容で新たにスライドが生成されます。スライドのデザイン・フォント・配色はテンプレートのスライドレイアウトが引き継がれます。
+
+テンプレートに以下のレイアウト名があると自動的に使用されます（日本語名にも対応）：
+
+- **タイトルスライド**: `Title Slide` / `タイトル スライド`
+- **セクションヘッダー**: `Section Header` / `セクション見出し`
+- **コンテンツスライド**: `Title and Content` / `タイトルとコンテンツ`
 
 ## 開発ガイド
 

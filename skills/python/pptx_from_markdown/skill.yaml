@@ -1,0 +1,16 @@
+name: pptx_from_markdown
+runtime: python
+entrypoint: skill.py
+description: >
+  PPTXテンプレートとMarkdownファイルをもとに、テンプレートのデザインを維持したまま
+  PowerPointプレゼンテーションを生成するスキル。
+args:
+  - name: --template
+    description: PPTXテンプレートファイルのパス
+    required: true
+  - name: --markdown
+    description: プレゼンテーション内容を記述したMarkdownファイルのパス
+    required: true
+  - name: --output
+    description: 出力するPPTXファイルのパス（省略時: output.pptx）
+    required: false
