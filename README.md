@@ -1,0 +1,2 @@
+# charoro_mcp_and_sklills
+よく利用するCodexやClaude Code, Github Copilotなどで利用できるスキルを入れるリポジトリ
