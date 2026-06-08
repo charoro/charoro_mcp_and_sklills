@@ -5,7 +5,7 @@
 ## ディレクトリ構成
 
 ```text
-/tmp/workspace/charoro/charoro_mcp_and_sklills
+.
 ├── AGENTS.md
 ├── mcp_servers/
 │   └── nodejs/
@@ -27,7 +27,7 @@
 ### 1) セットアップ
 
 ```bash
-cd /tmp/workspace/charoro/charoro_mcp_and_sklills/mcp_servers/nodejs/echo_server
+cd mcp_servers/nodejs/echo_server
 npm install
 ```
 
@@ -44,7 +44,7 @@ npm start
 ### 1) 実行
 
 ```bash
-cd /tmp/workspace/charoro/charoro_mcp_and_sklills/skills/python/text_summary
+cd skills/python/text_summary
 python3 skill.py --max-lines 2 "これはテキスト要約スキルのサンプルです。複数行の入力でも使えます。"
 ```
 
@@ -59,4 +59,4 @@ python3 skill.py --max-lines 2 "これはテキスト要約スキルのサンプ
 
 ## 開発ガイド
 
-開発時のルールは `/tmp/workspace/charoro/charoro_mcp_and_sklills/AGENTS.md` を参照してください。
+開発時のルールは `./AGENTS.md` を参照してください。
